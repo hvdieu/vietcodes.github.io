@@ -10,6 +10,8 @@ int main() {
     ios::sync_with_stdio(false); cin.tie(0);
     int n, m; cin >> n >> m;
     dsk ke(n + 1);
+    // bits[u] sẽ có giá trị true tại các vị
+    // trí tương ứng với các đỉnh kề với u
     vector<bs> bits(n + 1);
     while (m--) {
         int u, v; cin >> u >> v;
@@ -21,21 +23,35 @@ int main() {
         }
     }
     for (int u=1; u<=n; u++) {
+        // f lưu các đỉnh kề với các đỉnh kề của u
         bs f;
         for (int v: ke[u]) {
-            bits[v].reset(u);
+            bits[v][u] = false;
+
+            // lệnh dưới kiểm tra xem f và bits[v]
+            // có chung bit 1 nào không.
             if ((f & bits[v]).any()) {
+                // trường hợp có ít nhất 1 bit 1 chung,
+                // ta sẽ có được chu trình:
+                //     u
+                //    / \
+                //   x   v
+                //    \ /
+                //     w
+                // truy vết tìm w và x, sau đó xuất kết quả
                 f &= bits[v];
                 int w = 1;
-                while (!f.test(w)) w++;
-                for (int x: ke[w]) if (bits[u].test(x)) {
+                while (!f[w]) w++;
+                for (int x: ke[w]) if (bits[u][x]) {
                     cout << u << " " << v << " " << w << " " << x;
                     return 0;
                 }
             } else {
+                // cập nhật lại f
                 f |= bits[v];
             }
-            bits[v].set(u);
+
+            bits[v][u] = true;
         }
     }
     cout << -1;
