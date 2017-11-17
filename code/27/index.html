@@ -95,6 +95,18 @@ cần thực hiện khoảng <script type="math/tex">m \times n / 64</script>.</
 
 <p>Xem comment trong code để biết thêm chi tiết.</p>
 
+<p>Ngoài ra còn có cách làm <script type="math/tex">O(n^2)</script> do một bạn đề xuất như sau:</p>
+
+<blockquote>
+  <p>Với mỗi đỉnh u từ 1 đến n, duyệt tất cả các cặp đỉnh (v1, v2) kề với u, nếu f[v1][v2] chưa
+được đánh dấu thì tiến hành đánh dấu f[v1][v2], ngược lại thì ta tiến
+hành duyệt một lần nữa để tìm lại đỉnh v đã đánh dấu f[v1][v2], khi
+đó ta có chu trình u -&gt; v1 -&gt; v -&gt; v2 -&gt; u. Để tiết kiệm bộ nhớ thì ta
+dùng bitset để biểu diễn f.</p>
+</blockquote>
+
+<p>Tuy nhiên, với giới hạn của bài này thì cách làm <script type="math/tex">O(mn)</script> bên trên nhanh hơn.</p>
+
                 </div>
             </div>
             
