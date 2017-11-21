@@ -37,7 +37,7 @@
 
         <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="padding: 1px">
             <div class="panel window" style="margin-bottom: 0.5em;">
                 <div class="panel-heading">
                     <img class="btn-close" src="/img/close.svg"><img class="btn-minimize" src="/img/minimize.svg"><img class="btn-maximize" src="/img/maximize.svg">
@@ -166,9 +166,8 @@ cần phải kiểm tra xem toàn bộ các phần tử của A có nằm trong 
                 </div>
             </div>
             
-        </div>
-    </div>
-    <button onclick="loadComments()" class="btn btn-lg btn-success btn-block btn-load-cmt" id="btn-load-cmt">Load comments</button>
+
+            <button onclick="loadComments()" class="btn btn-lg btn-success btn-block btn-load-cmt" id="btn-load-cmt">Load comments</button>
 <div class="panel window hide" id="disqus-window">
     <div class="panel-heading">
         <img class="btn-close" src="/img/close.svg"><img class="btn-minimize" src="/img/minimize.svg"><img class="btn-maximize" src="/img/maximize.svg">
@@ -186,6 +185,8 @@ var disqus_config = function () {
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
+        </div>
+    </div>
 </div>
 
 <script src="/js/codeview.js"></script>
